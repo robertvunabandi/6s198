@@ -1,0 +1,43 @@
+{
+  "name": "6s198",
+  "version": "1.0.0",
+  "description": "Website for assignments in MIT's 6.s198",
+  "main": "index.js",
+  "scripts": {
+    "start": "yarn && yarn install && yarn del && yarn build",
+    "del": "rm -rf ./dist",
+    "build": "npx webpack && yarn run watch-src",
+    "watch-src": "echo \"Not Implemented: yarn watch\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertvunabandi/6s198.git"
+  },
+  "author": "Robert M. Vunabandi <rvunabandi@gmail.com> (https://robertvunabandi.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertvunabandi/6s198/issues"
+  },
+  "homepage": "https://robertvunabandi.com/6s198",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "7",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "eslint": "^5.6.1",
+    "file-loader": "^2.0.0",
+    "node-sass": "^4.9.3",
+    "path": "^0.12.7",
+    "prop-types": "^15.6.2",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
+  },
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  }
+}

@@ -1,0 +1,266 @@
+$color-red: #F00;
+$color-yellow: #FF0;
+$color-white: #FFF;
+$color-black: #000;
+$color-grey: #DDD;
+$color-grey-darker: #888;
+$color-blue: #17A;
+
+/**
+ * STYLES FOR ALL
+ */
+* {
+  transition: all 175ms;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#content {
+  display: block;
+}
+
+nav {
+  background-color: $color-black;
+  display: block;
+  padding: 1.0rem 1.0rem;
+  color: white;
+  overflow: auto;
+  a:link, a:visited {
+    color: white;
+    text-decoration: none;
+  }
+  span:first-child {
+    display: inline-block;
+    float: left;
+    font-weight: 100;
+  }
+  span:last-child {
+    display: inline-block;
+    float: right;
+    font-weight: 700;
+  }
+}
+
+footer {
+  background-color: $color-black;
+  text-align: center;
+  color: white;
+  padding: 0.5rem 0.5rem;
+  line-height: 1.5;
+  font-weight: 100;
+}
+
+.css-title-block {
+  display: block;
+  padding: 1.5rem 1.0rem;
+  font-size: 1.25rem;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.pad-vertical-050 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.pad-left-100 {
+  padding-left: 1.0rem !important;
+}
+
+h1 {
+  text-decoration: underline;
+}
+
+.x-box {
+  padding: 0.5rem;
+  span {
+    line-height: 1.35;
+  }
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.max-width-050 {
+  div, span, img, h1, h2, h3, h4, h5, h6 {
+    max-width: 50%;
+  }
+}
+
+.code-text {
+  font-family: 'Source Code Pro', monospace !important;
+  color: $color-blue;
+  * {
+    font-family: 'Source Code Pro', monospace !important;
+    color: $color-blue;
+  }
+}
+
+.x-code-block {
+  @extend .code-text;
+  padding: 0.85rem 1.125rem;
+  max-width: 70%;
+  margin: 1.25rem auto;
+  background-color: rgba(0,0,0,0.075);
+  box-shadow: inset 0 0 1.05rem rgba(0,0,0,0.045);
+  border-radius: 5px;
+  .x-code-line {
+    display: block;
+    .x-code-line-indent {
+      color: rgba(0,0,0,0);
+      display: inline-block;
+      width: 0.2in;
+    }
+  }
+}
+
+.x-image-wrapper {
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  div {
+    margin: 0 auto;
+  }
+}
+
+.x-image-view {
+  max-width: 100%;
+  img {
+    max-width: 100%;
+    box-shadow: 0 0 0.75rem rgba(0,0,0,0.1);
+    border: 2px solid rgba(0,0,0,0.25);
+  }
+  .x-image-view-caption {
+    text-align: center;
+    width: 100%;
+    font-size: 0.9rem;
+    color: $color-grey-darker;
+    font-style: italic;
+  }
+}
+.x-inline-code {
+  @extend .code-text;
+  display: inline-block;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  padding-bottom: 0.125rem;
+  background-color: rgba(0,0,0,0.075);
+  box-shadow: inset 0 0 0.25rem rgba(0,0,0,0.045);
+  border-radius: 3px;
+}
+
+.x-horizontal-split-parent {
+  display: flex;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  .x-horizontal-split-object-1, .x-horizontal-split-object-2, .x-horizontal-split-object-3, .x-horizontal-split-object-4 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    div {
+      display: block;
+    }
+  }
+  .x-horizontal-split-object-2, .x-horizontal-split-object-3, .x-horizontal-split-object-4 {
+  }
+  .x-horizontal-split-object-1 {
+    width: 100%;
+  }
+  .x-horizontal-split-object-2 {
+    width: 50%;
+  }
+  .x-horizontal-split-object-3 {
+    width: 33.3%;
+  }
+  .x-horizontal-split-object-4 {
+    width: 25%;
+  }
+  .x-horizontal-split-object-5 {
+    width: 20%;
+  }
+  .x-horizontal-split-object-6 {
+    width: 16.6%;
+  }
+  .x-horizontal-split-object-7 {
+    width: 14.2%;
+  }
+  .x-horizontal-split-object-7 {
+    width: 12.5%;
+  }
+}
+
+// must be inserted into empty element
+.empty-space-100 {
+  min-height: 1rem;
+}
+
+/**
+ * STYLES FOR ALL RELATED TO ASSIGNMENTS
+ */
+
+.assignment-title {
+  @extend .css-title-block;
+  background-color: $color-red;
+  color: white;
+}
+
+.assignment-subtitle {
+  display: block;
+  padding: 0.5rem 1.0rem;
+  font-size: 1.10rem;
+  background-color: $color-grey;
+}
+
+.assignment-box {
+  ol, ul {
+    padding: 0 0 0 1.5rem;
+    margin: 0;
+    li {
+      padding-left: 0.25rem;
+      line-height: 1.35;
+    }
+  }
+}
+
+#content {
+  .home-assignment-title {
+    @extend .css-title-block;
+    font-weight: 700;
+    background-color: $color-grey;
+  }
+  .home-assignment-group {
+    display: block;
+    padding: 1.5rem 1.5rem;
+    .home-assignment-link {
+      padding: 0.75rem 0;
+      display: block;
+      a:link, a:visited {
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+  .home-link-disabled {
+    color: $color-grey-darker !important;
+    cursor: not-allowed !important;
+  }
+}
+
+/**
+ * STYLES FOR SPECIFIC ASSIGNMENTS
+ */
+#content {
+  .assignment-zero {
+  }
+  .assignment-one {
+  }
+  .assignment-two {
+  }
+}
