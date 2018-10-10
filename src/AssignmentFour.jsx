@@ -6,6 +6,8 @@ import XContactInformationBoxContainer from "./components/XContactInformationBox
 import XHorizontalSplitContainer from "./components/XHorizontalSplit";
 import XImageWrapperComponent from "./components/XImageWrapper";
 import XImageView from "./components/XImageView";
+import XInlineCodeContainer from "./components/XInlineCode";
+import XCodeBlockComponent, { XCodeLineView } from "./components/XCodeBlock";
 
 // loading image src's
 import TSNEOneToSevenSrc from "./assets/4-1.1-one-seven.png";
@@ -17,7 +19,14 @@ import Word2VecAllHome from "./assets/4-1.3-Word2VecAllHome.png";
 import Word2VecAllWork from "./assets/4-1.3-Word2VecAllWork.png";
 import OriginalFontVector from "./assets/4-2.3.1-originalFont.png";
 import MostSimilarFont from "./assets/4-2.3.1-mostSimilarFont.png";
-import XInlineCodeContainer from "./components/XInlineCode";
+import ConvertFontOriginal_2_3_3_b from "./assets/4-2.3.3.b-original.png";
+import ConvertFontBold_2_3_3_b from "./assets/4-2.3.3.b-bold.png";
+import ConvertFontItalics_2_3_3_b from "./assets/4-2.3.3.b-italics.png";
+import ConvertFontBold_2_3_3_c from "./assets/4-2.3.3.c-bold.png";
+import ConvertFontItalics_2_3_3_c from "./assets/4-2.3.3.c-italics.png";
+import VectorChooserSrc from "./assets/4-2.3.3.f-VectorChooser.vue.txt";
+import AlphabetSrc from "./assets/4-2.3.3.f-Alphabet.vue.txt";
+import FontModelSrc from "./assets/4-2.3.3.f-FontModel.js.txt";
 
 window.addEventListener("load", () => main(<AssignmentFourView/>));
 
@@ -227,30 +236,217 @@ function AssignmentFourView() {
           </span>
           <h3>2.3.3.b</h3>
           <span>
-            I got the following italics vector: <XInlineCodeContainer>
-            [-0.0071, -0.0023, -0.0461, -0.256, -0.1843, -0.3526, 0.1051, 0.3138, 0.04, 0.0155, 0.1091, -0.2477, -0.0299, 0.0208, -0.0212, 0.1969, 0.0072, -0.0154, -0.0297, 0.0529, 0.2562, -0.0605, 0.0077, -0.0674, -0.1017, 0.004, -0.0564, -0.0748, -0.0032, 0.0076, 0.0684, -0.0129, -0.124, 0.1052, -0.0882, -0.0121, 0.0314, 0.0708, -0.0798, 0.0638]
-          </XInlineCodeContainer>
-            <br/>
-            This makes the font italic.
+            Using fonts with ids
+            <XInlineCodeContainer>52373</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>39509</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>39880</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>741</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>41602</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>5230</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>18913</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>40041</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>35823</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>38158</XInlineCodeContainer>. I got the following bolding vector:
+            <XCodeBlockComponent>
+              <XCodeLineView indent={0}>[</XCodeLineView>
+              <XCodeLineView indent={1}>
+                0.00364, -0.00794, -0.0061, -0.00136, -0.01055, 0.00469, -0.00168, -0.00231,
+              </XCodeLineView>
+              <XCodeLineView indent={1}>
+                -0.00947, 0.00636, 0.00158, -0.01646, -0.00466, 0.00335, -0.00325, 0.01391,
+              </XCodeLineView>
+              <XCodeLineView indent={1}>
+                0.01958, 0.01067, 0.00242, 0.01077, 0.00709, 0.02155, 0.00251, -0.01843,
+              </XCodeLineView>
+              <XCodeLineView indent={1}>
+                -0.02028, 0.00173, 0.00663, -0.00034, -0.001, 0.00428, -0.01205, 0.0098
+              </XCodeLineView>
+              <XCodeLineView indent={1}>
+                -0.00479, -0.00358, -0.01807, -0.01458, -0.00882, 0.01139, 0.01664, -0.00818,
+              </XCodeLineView>
+              <XCodeLineView indent={0}>]</XCodeLineView>
+            </XCodeBlockComponent>
+
+            Using the fonts with ids
+            <XInlineCodeContainer>30467</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>3504</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>18913</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>9817</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>50226</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>44711</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>15351</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>6860</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>45297</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>24008</XInlineCodeContainer>. I got the following italics vector:
+            <XCodeBlockComponent>
+              <XCodeLineView indent={0}>[</XCodeLineView>
+              <XCodeLineView indent={1}>
+                -0.01142, 0.0143, 0.00133, -0.01204, -0.00344, -0.0069, 0.00214, 0.01294,
+              </XCodeLineView>
+              <XCodeLineView indent={1}>
+                -0.00099, -0.00557, 0.01029, -0.02676, -0.01154, 0.00069, -0.00049, 0.00388,
+              </XCodeLineView>
+              <XCodeLineView indent={1}>
+                -0.00008, -0.01421, 0.00507, 0.00148, 0.01521, -0.02426, 0.00469, 0.00368,
+              </XCodeLineView>
+              <XCodeLineView indent={1}>
+                -0.00921, 0.00512, 0.00001, 0.00902, -0.00083, -0.00075, 0.00497, 0.01202,
+              </XCodeLineView>
+              <XCodeLineView indent={1}>
+                0.00647, 0.00519, 0.00703, -0.0148, -0.00439, -0.00163, -0.00539, -0.01326,
+              </XCodeLineView>
+              <XCodeLineView indent={0}>]</XCodeLineView>
+            </XCodeBlockComponent>
+
+            The results were completely tragic. It worked pretty badly. The text just went
+            from normal text to some unreadable font. Well, it worked okay for bold on bold
+            texts that weren't initially bold (in particular, that were very thin). However,
+            if the text was already kind of bold, the result are just tragic. See the results
+            below.
+
+
+
+            <XHorizontalSplitContainer>
+              <div>
+                <XImageWrapperComponent>
+                  <XImageView
+                    src={ConvertFontOriginal_2_3_3_b}
+                    caption={"Original font"}
+                    height={"30rem"}/>
+                </XImageWrapperComponent>
+              </div>
+              <div>
+                <XImageWrapperComponent>
+                  <XImageView
+                    src={ConvertFontBold_2_3_3_b}
+                    caption={"Font after applying bold vector above"}
+                    height={"30rem"}/>
+                </XImageWrapperComponent>
+              </div>
+              <div>
+                <XImageWrapperComponent>
+                  <XImageView
+                    src={ConvertFontItalics_2_3_3_b}
+                    caption={"Font after applying italics vector above"}
+                    height={"30rem"}/>
+                </XImageWrapperComponent>
+              </div>
+            </XHorizontalSplitContainer>
           </span>
           <h3>2.3.3.c</h3>
           <span><b>
-
+            Find 10 fonts the exhibit for a specific characteristic and 10 fonts for the opposite of
+            that characteristic (i.e. bold vs. corresponding non-bold). Subtract the vectors for
+            each pair and take the average difference. How does this work as a vector for the
+            characteristic (e.g., as a "bolding vector")?   Does this work better or worse than the
+            method above to obtain your desired characteristic?
           </b></span>
           <br/>
-          <span></span>
+          <span>
+            For this, I found the following regular fonts ids:
+            <XInlineCodeContainer>44559</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>822</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>3406</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>19445</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>3596</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>52551</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>40611</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>5638</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>8296</XInlineCodeContainer>,{" "}
+            <XInlineCodeContainer>38643</XInlineCodeContainer>. This let to the following vector:
+            <XCodeBlockComponent>
+              <XCodeLineView indent={0}>[</XCodeLineView>
+              <XCodeLineView indent={1}>
+                0.0005, -0.00487, 0.01401, 0.00456, -0.01574, 0.00148, 0.00118, -0.00163,
+              </XCodeLineView>
+              <XCodeLineView indent={1}>
+                0.01217, -0.00334, -0.00334, -0.00163, 0.00255, 0.00439, -0.00529, -0.00713,
+              </XCodeLineView>
+              <XCodeLineView indent={1}>
+                -0.00427, -0.00927, 0.01287, -0.00596, -0.0104, -0.00894, -0.0053, 0.00017,
+              </XCodeLineView>
+              <XCodeLineView indent={1}>
+                0.01309, -0.00308, -0.00054, 0.00412, 0.00095, 0.00541, -0.00007, 0.00138,
+              </XCodeLineView>
+              <XCodeLineView indent={1}>
+                -0.00366, -0.00091, -0.00292, 0.00123, 0.00668, -0.00357, -0.00345, 0.00285,
+              </XCodeLineView>
+              <XCodeLineView indent={0}>]</XCodeLineView>
+            </XCodeBlockComponent>
+
+            Using the regular fonts, I creating a bolding from taking the average of bold from part
+            b minus the regular vector above. I did the same for italics. I won't include the
+            numbers because that can be easily recomputed. However, here are the results from the
+            same font as above:
+            <XHorizontalSplitContainer>
+              <div>
+                <XImageWrapperComponent>
+                  <XImageView
+                    src={ConvertFontOriginal_2_3_3_b}
+                    caption={"Original font"}
+                    height={"30rem"}/>
+                </XImageWrapperComponent>
+              </div>
+              <div>
+                <XImageWrapperComponent>
+                  <XImageView
+                    src={ConvertFontBold_2_3_3_c}
+                    caption={
+                      "Font after applying bold vector from taking avg. bold vector minus regular"
+                    }
+                    height={"30rem"}/>
+                </XImageWrapperComponent>
+              </div>
+              <div>
+                <XImageWrapperComponent>
+                  <XImageView
+                    src={ConvertFontItalics_2_3_3_c}
+                    caption={
+                      "Font after applying italics vector from taking avg. italics " +
+                      "vector minus regular"
+                    }
+                    height={"30rem"}/>
+                </XImageWrapperComponent>
+              </div>
+            </XHorizontalSplitContainer>
+            This actually got worse. I had high hopes. The italics one got slightly better, but
+            it's still tragic. I think it might be because I didn't make good choices of fonts
+            when taking the average.
+          </span>
           <h3>2.3.3.d</h3>
           <span><b>
-
+            Can you figure out how to create a vector that makes uppercase fonts lowercase?
           </b></span>
           <br/>
-          <span></span>
+          <span>
+            Yes, this can be done by taking only fonts that are uppercase and finding their
+            average. Then, using that as the vector to add.
+          </span>
           <h3>2.3.3.e</h3>
           <span><b>
-
+            Can you create a vector based on your personal font tastes (i.e. a personal-likeable
+            vector)?
           </b></span>
           <br/>
-          <span></span>
+          <span>
+            This should also be possible. This is a cool problem because one can come up with fonts.
+            However, I still feel like it's a little too tedious to have to go through a bunch of
+            fonts, do the math, then test it. What would be great is if that process was completely
+            automated.
+          </span>
+          <h3>2.3.3.f My Code</h3>
+          <span>
+            Here are links to the codes I edited:
+            <br/>
+            <a href={VectorChooserSrc} target={"blank"}>VectorChooser.Vue</a>
+            <br/>
+            <a href={AlphabetSrc} target={"blank"}>Alphabet.Vue</a>
+            <br/>
+            <a href={FontModelSrc} target={"blank"}>FontModel.js</a>
+            <br/>
+          </span>
+          <div className={"empty-space-100"}>
+          </div>
         </XBoxView>
       </div>
     </div>

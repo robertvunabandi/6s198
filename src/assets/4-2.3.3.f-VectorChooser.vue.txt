@@ -1,0 +1,142 @@
+<!-- Contributed by David Bau, in the public domain -->
+
+<template>
+<div class="vectorlist">
+  <div v-for="(vector, index) in vectors" class="vector">
+    <input v-model="vector.text">
+    <button @click="selectVector(index)">&rarr;</button>
+    <button @click="deleteVector(index)">x</button>
+  </div>
+  <div class="operation">
+  <button @click="saveVector()">Save current sample</button>
+  </div>
+  <div class="operation">
+  <!-- TODO: Change this button to do something interesting -->
+  <button @click="applyVectorMath()">Apply vector math</button>
+  </div>
+  <div class="operation">
+  <button @click="applyVectorBolding()">Apply Bolding Vector</button>
+  </div>
+  <div class="operation">
+  <button @click="applyVectorBoldingFromAvg()">Apply Bolding Vector From Avg</button>
+  </div>
+  <div class="operation">
+  <button @click="applyVectorItalicsFromAvg()">Apply Italicizing Vector From Avg</button>
+  </div>
+  <div class="operation">
+  <button @click="applyVectorBoldMinusRegAvg()">Apply Bolding Vector From Minus Reg</button>
+  </div>
+  <div class="operation">
+  <button @click="applyVectorItalMinusRegAvg()">Apply Italicizing Vector From Minus Reg</button>
+  </div>
+  <!-- TODO: Add the KNN font ID button below -->
+  <button @click="getKNN()">getKNN</button>
+</div>
+</template>
+
+<script>
+import {Array1D, ENV} from 'deeplearn';
+
+const math = ENV.math;
+
+//This json file includes all of the Font IDs in our database and their 40-dimensional logits vector.
+var json = require('../embeddings.json');
+
+export default {
+  props: {
+    selectedSample: { },
+    model: { },
+    vectors: { type: Array, default: () => [ { text: "0" } ] }
+  },
+  methods: {
+    saveVector() {
+      this.selectedSample.data().then(x =>
+         this.vectors.push({ text: Array.prototype.slice.call(x).join(',') })
+      );
+    },
+    deleteVector(index) {
+      this.vectors.splice(index, 1);
+    },
+    selectVector(index) {
+      this.$emit("select", { selectedSample: this.model.fixdim(
+           Array1D.new(this.vectors[index].text.split(',').map(parseFloat)))});
+    },
+    // TODO: Add useful vector space operations here -->
+    applyVectorMath(vector) {
+      const zero_vector = Array.from(Array(40)).map(v => 0);
+      this.$emit("select", { selectedSample:
+           math.add(this.selectedSample, this.model.fixdim(
+               Array1D.new(vector || zero_vector))) } )
+    },
+    applyVectorBolding() {
+      const bolding_vector = [
+      0.053,0.026,-0.060,-0.014,-0.093,-0.018,0.087,0.096,-0.039,
+      0.071,0.111,-0.022,-0.007,0.022,-0.032,0.141,0.126,-0.015,
+      -0.075,0.120,0.068,0.021,0.104,-0.065,-0.085,-0.018,-0.038,
+      -0.059,-0.051,-0.056,0.154,-0.044,-0.116,0.038,-0.144,-0.103,
+      -0.032,0.059,-0.076,-0.030];
+      this.applyVectorMath(bolding_vector);
+    },
+    applyVectorBoldingFromAvg() {
+      const bolding_vector = [0.1457186434417963, -0.31744509807322174, -0.24382736813277006, -0.05432319990359247, -0.4220201950520277, 0.18773208931088448, -0.06710449396632612, -0.0925766471773386, -0.3786066062748432, 0.25446490477770567, 0.06328801531344652, -0.6585446153767407, -0.18635301617905498, 0.13399655842704306, -0.1300139669328928, 0.5565465348772705, 0.7832906059920788, 0.42663357267156243, 0.09695255279075354, 0.43094069231301546, 0.28350450191646814, 0.8620205977931619, 0.10038021951913834, -0.7372138667851686, -0.8113800528808497, 0.06936007412150502, 0.2653244808316231, -0.013587464112788439, -0.0398832717910409, 0.1710481597110629, -0.48184087686240673, 0.39183387835510075, -0.1915664724074304, -0.14321313239634037, -0.7229119734838605, -0.5833178216125816, -0.3527431273832917, 0.45574495487380773, 0.6657725782133639, -0.3271010760217905];
+      this.applyVectorMath(bolding_vector);
+    },
+    applyVectorItalicsFromAvg() {
+      const italics_vector = [-0.4567029355093837, 0.5721316337585449, 0.05339066684246063, -0.48176380805671215, -0.13768098689615726, -0.2760472384397872, 0.08559801708906889, 0.5175764560699463, -0.03973518870770931, -0.22291098209097981, 0.41159397829324007, -1.0705341985449195, -0.461730528739281, 0.027459758333861828, -0.019549589604139328, 0.15529373032040894, -0.0031219758093357086, -0.5682283006608486, 0.20286496193148196, 0.059340305626392365, 0.6083830017596483, -0.9705811124294996, 0.18759525381028652, 0.14708259282633662, -0.36820733873173594, 0.20499158278107643, 0.00027195969596505165, 0.3608815115876496, -0.03301191609352827, -0.0300681684166193, 0.19885473139584064, 0.48072774708271027, 0.25875323376385495, 0.20745717640966177, 0.2812657975591719, -0.591958899050951, -0.17552329832687974, -0.06509689474478364, -0.21555208787322044, -0.53052180679515];
+      this.applyVectorMath(italics_vector);
+    },
+    applyVectorBoldMinusRegAvg() {
+      const bolding_vector = [0.12567098066210747, -0.12262547865975648, -0.8044020077213645, -0.23675522464327514, 0.20753758086357266, 0.12870905734598637, -0.11437914124689996, -0.027187963481992483, -0.8654151097871363, 0.3880376433953643, 0.1970352552307304, -0.5934774657944217, -0.2883936376310885, -0.04156228568854203, 0.08161196112632751, 0.8416846836917102, 0.9542716257274151, 0.7975386395119131, -0.41799588040157687, 0.669491152279079, 0.6996273660333827, 1.2194655309431255, 0.31246321415528655, -0.7438307800330222, -1.3350474368198775, 0.19253595895133913, 0.2870211590779945, -0.17831042176112533, -0.0776943089440465, -0.04528536013094708, -0.47910579666495323, 0.3364679191727191, -0.04514186386950314, -0.10693820659071207, -0.6060872999951243, -0.6323622965719551, -0.6199104777770117, 0.5984881558688357, 0.8038895637728274, -0.4409076888114214];
+      this.applyVectorMath(bolding_vector);
+    },
+    applyVectorItalMinusRegAvg() {
+      const italics_vector = [-0.4767505982890725, 0.7669512531720102, -0.5071839727461338, -0.6641958327963948, 0.4918767890194431, -0.3350702704046853, 0.038323369808495045, 0.5829651397652924, -0.5265436922200024, -0.0893382434733212, 0.545341218210524, -1.0054670489626005, -0.5637711501913145, -0.14809908578172326, 0.19207633845508099, 0.4404318791348487, 0.1678590439260006, -0.197323233820498, -0.31208347126084846, 0.29789076559245586, 1.024505865876563, -0.613136179279536, 0.39967824844643474, 0.1404656795784831, -0.8918747226707637, 0.32816746761091053, 0.0219686379423365, 0.1961585539393127, -0.07082295324653387, -0.2464016882586293, 0.20158981159329414, 0.42536178790032864, 0.4051778423017822, 0.24373210221529007, 0.39809047104790807, -0.6410033740103245, -0.4426906487205997, 0.07764630625024438, -0.07743510231375694, -0.6443284195847809];
+      this.applyVectorMath(italics_vector);
+    },
+    //TODO: Implement getKNN to output the font ID of the nearest neighbor
+    getKNN() {
+      let self = this;
+      this.selectedSample.data().then(app_vector => {
+        console.log(app_vector);
+        const similarities = json.map((vector, id) => {
+          return [self.vectorSimilarties(vector, app_vector), id];
+        });
+        // sort them in descending order
+        similarities.sort((a, b) => a[0] < b[0]);
+        // log the best matching ids, which we can retrieve in the console.
+        console.log(similarities.slice(0, 10).map(a => a[1]));
+      });
+    },
+    vectorSimilarties(v1, v2) {
+      const multiplication = v1.map((point, index) => point * v2[index]);
+      const dot_product = multiplication.reduce((summation, new_prod) => {
+        return summation + new_prod;
+      }, 0);
+      // similarity is absolute value of dot product
+      return Math.abs(dot_product);
+    }
+  },
+  watch: {
+    model: function(val) {
+      for (let i = 0; i < this.vectors.length; ++i) {
+        let arr = this.vectors[i].text.split(',');
+        if (arr.length > this.model.dimensions) {
+            arr = arr.slice(0, this.model.dimensions);
+        }
+        while (arr.length < this.model.dimensions) {
+            arr.push('0');
+        }
+        this.vectors[i].text = arr.join(',');
+      }
+    }
+  },
+}
+</script>
+
+<style scoped>
+.vector, .operation {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+</style>

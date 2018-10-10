@@ -44,4 +44,7 @@ function XCodeLineView(props) {
   );
 }
 
+XCodeLineView.defaultProps = {indent: 0};
+XCodeLineView.propTypes = {indent: PropTypes.number};
+
 export {XCodeLineView};
