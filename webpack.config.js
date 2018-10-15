@@ -10,6 +10,8 @@ module.exports = {
     assignment_two: public_src + "AssignmentTwo.jsx",
     assignment_three: public_src + "AssignmentThree.jsx",
     assignment_four: public_src + "AssignmentFour.jsx",
+    assignment_five: public_src + "AssignmentFive.jsx",
+    assignment_six: public_src + "AssignmentSix.jsx",
   },
   output: {
     filename: "[name].js",
