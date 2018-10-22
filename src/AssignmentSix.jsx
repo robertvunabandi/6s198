@@ -39,7 +39,11 @@ function AssignmentSixView() {
           </span>
           <h1>Problem 3: Did the rewards improve over time? Why or why not?</h1>
           <span>
-            They get really good really fast, but then after that things stop improving.
+            They get really good really fast, but then after that things stop improving. I think
+            given that the Q learning table is pretty small, it's easy for this to quickly learn
+            what is needed really fast. Then, it has to stop improving at a certain point because
+            of the random wind factor. Basically, this can't reach a point where it succeeds 100%
+            because the wind always has some amount of chance of messing it up.
           </span>
           <h1>
             Problem 4: In the above code segment, we provided some values for
