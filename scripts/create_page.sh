@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# todo - check that both arguments are provided
 ASSIGNMENT_NUMBER_STRING=$1
 ASSIGNMENT_NUMBER=$2
 
