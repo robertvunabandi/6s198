@@ -31,6 +31,7 @@ function AssignmentSevenView() {
             whole chain while the new inputs are new for every module.
           </span>
           <br/>
+          <br/>
           {/* question */}
           <span>
             <b>
@@ -53,6 +54,7 @@ function AssignmentSevenView() {
             we shouldn't keep track of.
           </span>
           <br/>
+          <br/>
           {/* question */}
           <span>
             <b>
@@ -69,6 +71,7 @@ function AssignmentSevenView() {
             each module (like the change is somewhat small but still there and could be dramatic).
             The thing that is always new is the input.
           </span>
+          <br/>
           <br/>
           {/* question */}
           <span>
@@ -91,6 +94,7 @@ function AssignmentSevenView() {
             values bounded in the range [-1.0, 1.0], and we don't want to lose information of the
             low values. So, it wouldn't make sense to use ReLU.
           </span>
+          <br/>
           <br/>
           {/* ---------------------------------------------------------------- */}
           <h1></h1>
