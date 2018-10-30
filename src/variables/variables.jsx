@@ -17,7 +17,10 @@ const ASSIGNMENTS = [
   {text: "Assignment 4", link: "./pages/assignment_four.html", active: true},
   {text: "Assignment 5", link: "./pages/assignment_five.html", active: true},
   {text: "Assignment 6", link: "./pages/assignment_six.html", active: true},
-  {text: "Assignment 7", link: "./pages/assignment_seven.html", active: false},
+  {text: "Assignment 7", link: "./pages/assignment_seven.html", active: true},
+  {text: "Assignment 8", link: "./pages/assignment_eight.html", active: false},
+  {text: "Assignment 9", link: "./pages/assignment_nine.html", active: false},
+  {text: "Assignment 10", link: "./pages/assignment_ten.html", active: false},
 ];
 
 export {PAGES, ASSIGNMENTS};
