@@ -1,0 +1,22 @@
+import React from "react";
+import main from "./main";
+import AssignmentTitleContainer from "./components/AssignmentTitle";
+import XBoxView from "./components/Xbox";
+import XContactInformationBoxContainer from "./components/XContactInformationBox";
+
+window.addEventListener("load", () => main(<Assignment${UPPERCASE_ASSIGNMENT_NUMBER_STRING}View/>));
+
+function Assignment${UPPERCASE_ASSIGNMENT_NUMBER_STRING}View() {
+  return (
+    <div className={"assignment-six"}>
+      <div className={"assignment-box"}>
+        <AssignmentTitleContainer title={"6.S198 Assignment ${ASSIGNMENT_NUMBER}"}/>
+        <XBoxView className={"pad-left-100"}>
+          <XContactInformationBoxContainer/>
+        </XBoxView>
+        <XBoxView className={"pad-left-100"}>
+        </XBoxView>
+      </div>
+    </div>
+  );
+}
